@@ -1,0 +1,11 @@
+.todo_block {
+  border: 1px solid #000;
+  border-radius: 4px;
+  margin: 5px 0;
+
+}
+.edit_field:active{ outline:none;}
+.edit_field:focus {
+  outline:none;
+  border: none;
+}

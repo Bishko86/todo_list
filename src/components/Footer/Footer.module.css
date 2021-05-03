@@ -1,0 +1,19 @@
+.footer {
+  position: absolute;
+  top: 100px;
+  left: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.filter_btn {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(156, 152, 152);
+  border-radius: 2px;
+  margin-top: 5px;
+}
+.select{
+  color: rgb(146, 41, 9);
+  background: rgb(211, 208, 208);
+}
