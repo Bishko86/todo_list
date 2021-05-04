@@ -28,8 +28,8 @@ export function saveEditTodo(id, text) {
 export function editTodo(id) {
     return { type: EDIT_TODO, id }
 }
-export function addTodo(text) {
-    return { type: ADD_TODO, text, id: indexId() }
+export function addTodo(text, date) {
+    return { type: ADD_TODO, text, date, id: indexId() }
 }
 export function removeTodo(id) {
     return { type: REMOVE_TODO, id }

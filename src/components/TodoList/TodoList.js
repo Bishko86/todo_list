@@ -12,7 +12,8 @@ const TodoList = ({ todos, toggleTodo, removeTodo, saveEditTodo }) => {
                 key={todo.id}
                 onClick={() => toggleTodo(todo.id)}
                 onRemove={() => removeTodo(todo.id)}
-                saveEditTodo={saveEditTodo} />
+                saveEditTodo={saveEditTodo}
+            />
             )}
         </ul>
     )
@@ -25,7 +26,8 @@ TodoList.propTypes = {
             id: PropTypes.number.isRequired,
             completed: PropTypes.bool.isRequired,
             text: PropTypes.string.isRequired,
-            editing: PropTypes.bool.isRequired
+            date: PropTypes.string.isRequired,
+
         }).isRequired
     ).isRequired,
     toggleTodo: PropTypes.func.isRequired

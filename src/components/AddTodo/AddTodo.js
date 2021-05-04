@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { addTodo } from './../../actions';
 import { connect } from 'react-redux';
 
 const AddTodo = ({ addTodo }) => {
-
+    let [date, setDate] = useState(new Date().toLocaleDateString());
+    const setTodoDate = () => {
+        setDate(new Date().toLocaleDateString())
+    }
     let input;
     return (
 
         <>
-            <form onSubmit={e => {
+            <form onSubmit={(e) => {
 
                 e.preventDefault()
                 if (!input.value.trim()) {
                     return
                 }
-                addTodo(input.value)
+                setTodoDate();
+                addTodo(input.value, date)
                 input.value = ''
             }}
             >
