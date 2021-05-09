@@ -1,13 +1,12 @@
 import React, { memo } from 'react';
-import Todo from "../Todo/Todo"
+import TodoBlock from "../Todo/TodoBlock"
 import { PropTypes } from 'prop-types'
 import style from './TodoList.module.css'
 const TodoList = ({ todos, toggleTodo, removeTodo, saveEditTodo }) => {
 
     return (
-
-        <ul className={style.todo_list}>
-            {todos.map((todo) => <Todo
+        <div className={style.todo_list}>
+            {todos.map((todo) => <TodoBlock
                 {...todo}
                 key={todo.id}
                 onClick={() => toggleTodo(todo.id)}
@@ -15,7 +14,7 @@ const TodoList = ({ todos, toggleTodo, removeTodo, saveEditTodo }) => {
                 saveEditTodo={saveEditTodo}
             />
             )}
-        </ul>
+        </div>
     )
 }
 
