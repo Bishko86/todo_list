@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { addTodo } from './../../actions';
 import { connect } from 'react-redux';
+import style from './AddTodo.module.css'
 
 const AddTodo = ({ addTodo }) => {
     let [date, setDate] = useState(new Date().toLocaleDateString());
@@ -22,8 +23,8 @@ const AddTodo = ({ addTodo }) => {
                 input.value = ''
             }}
             >
-                <input ref={node => input = node} />
-                <button id="btn" type="submit">Add Todo</button>
+                <input className={style.input} ref={node => input = node} />
+                <button className={style.button} id="btn" type="submit">Add Todo</button>
             </form>
         </>
     )
