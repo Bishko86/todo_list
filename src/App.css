@@ -39,8 +39,10 @@
 
 .baseWrap{
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  background-color: rgb(228, 226, 225);
+  min-height: 100vh;
+  /* min-height: 100%; */
 }
 
 .baseWrap div {
@@ -48,4 +50,9 @@
   text-align: center;
 }
 
+.currentWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 

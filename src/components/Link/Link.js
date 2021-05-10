@@ -3,7 +3,6 @@ import { PropTypes } from 'prop-types';
 import style from './../Footer/Footer.module.css'
 
 const Link = ({ active, children, onClick }) => {
-    console.log(active);
 
     let selected = active ? 'select' : null;
     return (
