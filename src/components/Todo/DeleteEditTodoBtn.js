@@ -1,12 +1,14 @@
 import React from 'react';
 import style from './Todo.module.css';
 
-const DeleteEditTodoBtn = ({ onClick, title, height, icon }) => {
+const DeleteEditTodoBtn = ({ onClick, title, height, icon, SVG, size }) => {
 
   return (
     <div className={style.buttons}>
       <span onClick={onClick} className={style.edit}>
-        <img title={title} height={height} src={icon} />
+        {SVG ? <SVG size={size} /> :
+          <img title={title} height={height} src={icon} />
+        }
       </span>
     </div>
   )
