@@ -4,6 +4,8 @@ import deleteIcon from './delete512.png';
 import editIcon from './edit-round-line.png';
 import saveIcon from './save-512.png';
 import DeleteEditTodoBtn from './DeleteEditTodoBtn';
+import { BsXCircle } from "react-icons/bs";
+import { GrEdit, GrAddCircle } from "react-icons/gr";
 import Todo from './Todo';
 
 const TodoBlock = React.memo(({ id, text, completed, onClick, onRemove, saveEditTodo, date }) => {
@@ -21,7 +23,7 @@ const TodoBlock = React.memo(({ id, text, completed, onClick, onRemove, saveEdit
             setEditMode(node => !node);
         }, 200)
     }
-
+    // debugger
     return (
         <div style={{
             margin: 'auto'
@@ -41,20 +43,19 @@ const TodoBlock = React.memo(({ id, text, completed, onClick, onRemove, saveEdit
                     onClick={onRemove}
                     title='Remove todo'
                     height={22}
-                    icon={deleteIcon} />
+                    icon={null}
+                    SVG={BsXCircle} />
 
                 {
                     editMode ?
                         <DeleteEditTodoBtn
                             onClick={null}
-                            title='Save todo'
-                            height={22}
-                            icon={saveIcon} /> :
+                            size={20}
+                            SVG={GrAddCircle} /> :
                         <DeleteEditTodoBtn
                             onClick={() => { setEditMode(node => !node) }}
-                            title="Edit todo"
-                            height={22}
-                            icon={editIcon} />
+                            size={20}
+                            SVG={GrEdit} />
                 }
 
             </Todo>
