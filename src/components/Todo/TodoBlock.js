@@ -1,35 +1,44 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import deleteIcon from './delete512.png';
-import editIcon from './edit-round-line.png';
-import saveIcon from './save-512.png';
 import DeleteEditTodoBtn from './DeleteEditTodoBtn';
 import { BsXCircle } from "react-icons/bs";
 import { GrEdit, GrAddCircle } from "react-icons/gr";
 import Todo from './Todo';
+import Modal from './../Modal/Modal';
 
 const TodoBlock = React.memo(({ id, text, completed, onClick, onRemove, saveEditTodo, date }) => {
 
-    let [textValue, setTextValue] = useState(text)
-    let [editMode, setEditMode] = useState(false)
+    const [modalActive, setModalActive] = useState(false)
+    const [textValue, setTextValue] = useState(text)
+    const [editMode, setEditMode] = useState(false)
+    const [deleteMode, setDeleteMode] = useState(false)
 
     const onChange = (e) => {
         setTextValue(e.target.value);
-
     }
+
+    const deleteTodo = () => {
+        setModalActive(false);
+        setDeleteMode(true);
+        setTimeout(() => onRemove(id), 300)
+    }
+
     const saveTodo = () => {
         return setTimeout(() => {
             saveEditTodo(id, textValue);
             setEditMode(node => !node);
         }, 200)
     }
-    // debugger
+
+
     return (
         <div style={{
             margin: 'auto'
 
         }}>
+            {modalActive && <Modal modalActive={modalActive} ok={deleteTodo} cancel={() => setModalActive(false)} />}
             <Todo
+                deleteMode={deleteMode}
                 editMode={editMode}
                 text={text}
                 completed={completed}
@@ -40,7 +49,8 @@ const TodoBlock = React.memo(({ id, text, completed, onClick, onRemove, saveEdit
                 textValue={textValue}
             >
                 <DeleteEditTodoBtn
-                    onClick={onRemove}
+                    deleteMode={deleteMode}
+                    onClick={() => setModalActive(true)}
                     title='Remove todo'
                     height={22}
                     icon={null}
@@ -49,10 +59,12 @@ const TodoBlock = React.memo(({ id, text, completed, onClick, onRemove, saveEdit
                 {
                     editMode ?
                         <DeleteEditTodoBtn
+                            deleteMode={deleteMode}
                             onClick={null}
                             size={20}
                             SVG={GrAddCircle} /> :
                         <DeleteEditTodoBtn
+                            deleteMode={deleteMode}
                             onClick={() => { setEditMode(node => !node) }}
                             size={20}
                             SVG={GrEdit} />
