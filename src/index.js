@@ -5,7 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { store } from './store/store'
 import { Provider } from 'react-redux';
+import { registration, newClient, loadClietsList } from './FireBase/FireBase'
 console.log(store.getState());
+// let email = 'polroldon@gmail.com';
+// let password = '123456';
+// registration(email, password);
+// newClient(store.getState().todos)
+// loadClietsList('Kxbo7iYiTiPZo9t1Y8iHb8iwp9o2', 'clients');
 
 ReactDOM.render(
   <React.StrictMode>

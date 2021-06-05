@@ -14,7 +14,7 @@ const App = ({ todos }) => {
   useEffect(() => {
     if (todos.length > 0) setEmptyListMode(false);
     else setEmptyListMode(true);
-  })
+  }, [todos]);
 
   return (
     < div className={'baseWrap'} >

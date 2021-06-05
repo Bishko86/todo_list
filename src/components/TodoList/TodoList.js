@@ -8,9 +8,13 @@ const TodoList = ({ todos, toggleTodo, removeTodo, saveEditTodo }) => {
         <div className={style.todo_list}>
             {todos.map((todo) => <TodoBlock
                 {...todo}
+                id={todo.id}
                 key={todo.id}
-                onClick={() => toggleTodo(todo.id)}
-                onRemove={() => removeTodo(todo.id)}
+                onClick={(e) => {
+                    if (e.target.tagName === 'TEXTAREA') return;
+                    toggleTodo(todo.id);
+                }}
+                onRemove={removeTodo}
                 saveEditTodo={saveEditTodo}
             />
             )}
@@ -18,7 +22,7 @@ const TodoList = ({ todos, toggleTodo, removeTodo, saveEditTodo }) => {
     )
 }
 
-const TodoListWithMemo = React.memo(TodoList)
+const TodoListWithMemo = memo(TodoList)
 TodoList.propTypes = {
     todos: PropTypes.arrayOf(
         PropTypes.shape({

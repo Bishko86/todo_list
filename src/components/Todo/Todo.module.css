@@ -4,12 +4,20 @@
   border-radius: 4px;
   margin: 5px 0;
   width:300px ;
-  min-height: 100px;
+  height: 100px;
   padding: '5px 0 5px 0px ';
+  transition: .3s;
+  overflow: hidden;
+
 }
 .todo_block{
   display: flex;
   align-items: center;
+  overflow: hidden;
+ 
+}
+.delete_animation {
+  height: 0px ;
 }
 
 .save ,
@@ -36,6 +44,7 @@
   margin: 0 15px 0 20px;
   word-wrap: break-word;
 }
+
 
 .textarea {
   display:inline-block;
